@@ -97,6 +97,11 @@
             event.preventDefault();
             const email = event.target.email.value;
             alert(`Thank you! You will be notified at ${email}.`);
+            console.log(`Sending 'Hi' message to ${email}`);
+            // Simulate sending email
+            setTimeout(() => {
+                console.log(`Hi message sent to ${email}`);
+            }, 1000);
             event.target.reset();
         });
     </script>
