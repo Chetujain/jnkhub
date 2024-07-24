@@ -3,40 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to JnK HUB</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f4f4f4;
-        }
-        .container {
-            text-align: center;
-        }
-        h1 {
-            color: #333;
-        }
-        p {
-            color: #555;
-        }
-        a {
-            color: #0066cc;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <title>JnK HUB</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to JnK HUB</h1>
-        <p>Your premier destination for innovative digital marketing solutions.</p>
-        <p>Visit us at <a href="https://jnkhub.com">jnkhub.com</a></p>
-    </div>
+    <header>
+        <nav>
+            <div class="logo">JnK HUB</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Welcome to JnK HUB</h1>
+            <p>Your one-stop solution for Branding, Creative, Ads, and Video Editing Services</p>
+            <a href="#services" class="btn">Explore Services</a>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <h2>Our Services</h2>
+        <div class="service-cards">
+            <div class="card">
+                <h3>Branding</h3>
+                <p>Building strong brand identities to set you apart from the competition.</p>
+            </div>
+            <div class="card">
+                <h3>Creative</h3>
+                <p>Innovative designs and solutions to capture your audience's imagination.</p>
+            </div>
+            <div class="card">
+                <h3>Ads</h3>
+                <p>Effective advertising strategies to drive engagement and growth.</p>
+            </div>
+            <div class="card">
+                <h3>Video Editing</h3>
+                <p>Professional video editing services to create stunning visual content.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 JnK HUB. All rights reserved.</p>
+            <ul class="social-links">
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">LinkedIn</a></li>
+            </ul>
+        </div>
+    </footer>
 </body>
 </html>
