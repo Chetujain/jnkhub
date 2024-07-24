@@ -6,71 +6,94 @@
     <meta name="description" content="We're building something amazing. Stay tuned!">
     <meta name="keywords" content="coming soon, under construction, building website, email capture">
     <meta name="author" content="JnK">
-    <title>Coming Soon | JnK</title>
+    <title>Coming Soon | JnK HUB</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600&family=Helvetica+Neue&display=swap');
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Helvetica Neue', 'Barlow', sans-serif;
         }
 
         body {
             background-color: #111111;
-            color: #ffffff;
+            color: #fff;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             text-align: center;
+            overflow: hidden;
         }
 
         .container {
-            max-width: 600px;
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
+            background: #111111;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 20px 20px 60px #0d0d0d, -20px -20px 60px #151515;
             animation: fadeIn 1s ease-in-out;
+            max-width: 400px;
+            width: 100%;
         }
 
-        h1 {
-            font-size: 2.5rem;
+        .logo img {
+            max-width: 100px;
             margin-bottom: 20px;
         }
 
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
         p {
-            font-size: 1.2rem;
+            font-size: 1rem;
             margin-bottom: 30px;
+            font-weight: 300;
         }
 
         .email-capture {
             display: flex;
             justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }
 
         .email-capture input[type="email"] {
-            padding: 10px;
-            border: 1px solid #3490dd;
-            border-radius: 5px;
-            margin-right: 10px;
-            flex: 1;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 25px;
+            margin-bottom: 15px;
+            width: 100%;
             max-width: 300px;
-            background-color: #222222;
-            color: #ffffff;
+            background: #222222;
+            color: #fff;
+            box-shadow: inset 5px 5px 10px #0d0d0d, inset -5px -5px 10px #151515;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .email-capture input[type="email"]:focus {
+            outline: none;
+            box-shadow: inset 2px 2px 5px #0d0d0d, inset -2px -2px 5px #151515;
         }
 
         .email-capture button {
             padding: 10px 20px;
             border: none;
-            border-radius: 5px;
-            background-color: #3490dd;
-            color: #ffffff;
+            border-radius: 25px;
+            background: #008080;
+            color: #fff;
             cursor: pointer;
-            transition: background-color 0.3s;
+            box-shadow: 5px 5px 15px #0d0d0d, -5px -5px 15px #151515;
+            transition: background 0.3s, box-shadow 0.3s;
         }
 
         .email-capture button:hover {
-            background-color: #2678bb;
+            background: #007070;
+            box-shadow: 2px 2px 5px #0d0d0d, -2px -2px 5px #151515;
         }
 
         @keyframes fadeIn {
@@ -85,8 +108,11 @@
 </head>
 <body>
     <div class="container">
-        <h1>Something Amazing is Coming Soon</h1>
-        <p>We're working hard to finish the development of this site. Stay tuned for updates!</p>
+        <div class="logo">
+            <img src="jnk_logo.svg" alt="JnK Logo">
+        </div>
+        <h1>Coming Soon</h1>
+        <p>We're working on something amazing. Stay tuned!</p>
         <form class="email-capture" id="emailCaptureForm">
             <input type="email" name="email" placeholder="Enter your email" required>
             <button type="submit">Notify Me</button>
@@ -96,12 +122,24 @@
         document.getElementById('emailCaptureForm').addEventListener('submit', function(event) {
             event.preventDefault();
             const email = event.target.email.value;
-            alert(`Thank you! You will be notified at ${email}.`);
-            console.log(`Sending 'Hi' message to ${email}`);
+
             // Simulate sending email
-            setTimeout(() => {
-                console.log(`Hi message sent to ${email}`);
-            }, 1000);
+            fetch('https://your-backend-service/subscribe', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Thank you! You will be notified.');
+                } else {
+                    alert('There was an error. Please try again.');
+                }
+            });
+
             event.target.reset();
         });
     </script>
