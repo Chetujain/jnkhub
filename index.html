@@ -3,87 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE JnK HUB - Coming Soon</title>
+    <title>Coming Soon - JnK HUB</title>
+    <meta name="description" content="Discover the future of innovation with JnK HUB’s upcoming launch! Our new website is on its way, bringing you cutting-edge solutions and exceptional experiences. Subscribe now to stay informed and get notified about our exciting developments!">
+    <link rel="stylesheet" href="styles.css">
+</head>
     <style>
         body {
-            background-color: #111111;
-            color: #fff;
-            font-family: Helvetica Neue, Barlow, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            overflow: hidden;
-        }
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: #111111;
+    color: #ffffff;
+}
 
-        .container {
-            text-align: center;
-            position: relative;
-        }
+.logo-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
 
-        .logo {
-            width: 200px;
-            height: auto;
-            margin-bottom: 30px;
-        }
+.tagline {
+    font-size: 18px;
+    font-weight: 400;
+    color: #008080;
+}
 
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
+.headline {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
 
-        p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-        }
+.subheadline {
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
 
-        .button {
-            background-color: #008080;
-            color: #fff;
-            padding: 15px 30px;
-            border-radius: 5px;
-            text-transform: uppercase;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s ease-in-out;
-            box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.2), 0px 0px 10px rgba(255, 255, 255, 0.1);
-        }
+#email-capture-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-        .button:hover {
-            background-color: #006666;
-        }
+#email-capture-form input[type="email"] {
+    padding: 10px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    width: 300px;
+}
 
-        .neumorphic {
-            background-color: #111111;
-            box-shadow: inset 0px 0px 5px rgba(255, 255, 255, 0.1), inset 0px 0px 10px rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-            padding: 20px;
-        }
+#email-capture-form button[type="submit"] {
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    background-color: #008080;
+    color: #ffffff;
+    cursor: pointer;
+}
 
-        /* Animation */
-        .container {
-            animation: fadeInUp 1s ease-in-out;
-        }
+#email-capture-form button[type="submit"]:hover {
+    background-color: #009999;
+}
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+.confirmation-message {
+    font-size: 18px;
+    font-weight: 400;
+    color: #008080;
+    margin-top: 10px;
+}
+
+.copyright {
+    font-size: 14px;
+    font-weight: 400;
+    color: #666666;
+    margin-bottom: 10px;
+}
+
+.social-media-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.social-media-links li {
+    margin-right: 10px;
+}
+
+.social-media-links a {
+    color: #666666;
+    transition: color 0.2s ease;
+}
+
+.social-media-links a:hover {
+    color: #008080;
+}
     </style>
-</head>
 <body>
-    <div class="container neumorphic">
-        <img src="your-logo.png" alt="Logo" class="logo">
-        <h1>THE JnK HUB</h1>
-        <p>We're building something amazing. Stay tuned!</p>
-        <button class="button">Subscribe</button>
-    </div>
+    <header>
+        <div class="logo-container">
+            <img src="logo.png" alt="JnK HUB Logo">
+            <p class="tagline">Innovating the Future</p>
+        </div>
+    </header>
+    <main>
+        <h1 class="headline">Something Incredible is Coming Soon</h1>
+        <p class="subheadline">We’re working hard to bring you something truly special. Stay tuned for an amazing launch!</p>
+        <form id="email-capture-form">
+            <input type="email" placeholder="Enter your email address">
+            <button type="submit">Notify Me</button>
+            <p class="confirmation-message"></p>
+        </form>
+    </main>
+    <footer>
+        <p class="copyright"> 2024 JnK HUB. All rights reserved.</p>
+        <ul class="social-media-links">
+            <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        </ul>
+    </footer>
+    <script src="type/javascript">
+        const form = document.getElementById('email-capture-form');
+const confirmationMessage = document.querySelector('.confirmation-message');
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = document.querySelector('input[type="email"]').value;
+    fetch('/subscribe', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email })
+    })
+    .then((response) => response.json())
+    .then((data) =>
+    </script>
 </body>
 </html>
