@@ -3,143 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon - JnK HUB</title>
-    <meta name="description" content="Discover the future of innovation with JnK HUB’s upcoming launch! Our new website is on its way, bringing you cutting-edge solutions and exceptional experiences. Subscribe now to stay informed and get notified about our exciting developments!">
-    <link rel="stylesheet" href="styles.css">
-</head>
+    <meta name="description" content="Welcome to JnK HUB. Discover our innovative solutions with this introductory video.">
+    <title>JnK HUB</title>
     <style>
         body {
-    font-family: 'Helvetica Neue', sans-serif;
-    background-color: #111111;
-    color: #ffffff;
-}
-
-.logo-container {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.tagline {
-    font-size: 18px;
-    font-weight: 400;
-    color: #008080;
-}
-
-.headline {
-    font-size: 48px;
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-
-.subheadline {
-    font-size: 24px;
-    font-weight: 400;
-    margin-bottom: 20px;
-}
-
-#email-capture-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#email-capture-form input[type="email"] {
-    padding: 10px;
-    font-size: 18px;
-    border: none;
-    border-radius: 5px;
-    width: 300px;
-}
-
-#email-capture-form button[type="submit"] {
-    padding: 10px 20px;
-    font-size: 18px;
-    border: none;
-    border-radius: 5px;
-    background-color: #008080;
-    color: #ffffff;
-    cursor: pointer;
-}
-
-#email-capture-form button[type="submit"]:hover {
-    background-color: #009999;
-}
-
-.confirmation-message {
-    font-size: 18px;
-    font-weight: 400;
-    color: #008080;
-    margin-top: 10px;
-}
-
-.copyright {
-    font-size: 14px;
-    font-weight: 400;
-    color: #666666;
-    margin-bottom: 10px;
-}
-
-.social-media-links {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: space-between;
-}
-
-.social-media-links li {
-    margin-right: 10px;
-}
-
-.social-media-links a {
-    color: #666666;
-    transition: color 0.2s ease;
-}
-
-.social-media-links a:hover {
-    color: #008080;
-}
+            margin: 0;
+            padding: 0;
+            background-color: #111111;
+            color: #ffffff;
+            font-family: 'Helvetica Neue', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .video-container {
+            max-width: 100%;
+            max-height: 70%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        video {
+            width: 80%;
+            height: auto;
+            border: none;
+            outline: none;
+        }
+        .content {
+            text-align: center;
+            padding: 20px;
+        }
+        .content h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        .content p {
+            font-size: 1.2em;
+            color: #008080;
+        }
+        .content button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #008080;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .content button:hover {
+            background-color: #006666;
+        }
     </style>
+</head>
 <body>
-    <header>
-        <div class="logo-container">
-            <img src="logo.png" alt="JnK HUB Logo">
-            <p class="tagline">Innovating the Future</p>
-        </div>
-    </header>
-    <main>
-        <h1 class="headline">Something Incredible is Coming Soon</h1>
-        <p class="subheadline">We’re working hard to bring you something truly special. Stay tuned for an amazing launch!</p>
-        <form id="email-capture-form">
-            <input type="email" placeholder="Enter your email address">
-            <button type="submit">Notify Me</button>
-            <p class="confirmation-message"></p>
-        </form>
-    </main>
-    <footer>
-        <p class="copyright"> 2024 JnK HUB. All rights reserved.</p>
-        <ul class="social-media-links">
-            <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="#" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-        </ul>
-    </footer>
-    <script src="type/javascript">
-        const form = document.getElementById('email-capture-form');
-const confirmationMessage = document.querySelector('.confirmation-message');
-
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const email = document.querySelector('input[type="email"]').value;
-    fetch('/subscribe', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ email })
-    })
-    .then((response) => response.json())
-    .then((data) =>
-    </script>
+    <div class="video-container">
+        <video controls>
+            <source src="path-to-your-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="content">
+        <h1>Welcome to JnK HUB</h1>
+        <p>Discover our innovative solutions and take your brand to the next level.</p>
+        <button onclick="window.location.href='contact.html'">Get in Touch</button>
+    </div>
 </body>
 </html>
